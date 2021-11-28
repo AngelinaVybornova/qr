@@ -29,72 +29,83 @@ namespace qr
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.cmbVideoSource = new System.Windows.Forms.ComboBox();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.materialRaisedButton2 = new MaterialSkin.Controls.MaterialRaisedButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(8, 452);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 39);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Старт";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 64);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(669, 434);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.Size = new System.Drawing.Size(555, 488);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(139, 452);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 39);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Стоп";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // cmbVideoSource
             // 
+            this.cmbVideoSource.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmbVideoSource.FormattingEnabled = true;
-            this.cmbVideoSource.Location = new System.Drawing.Point(12, 497);
+            this.cmbVideoSource.Location = new System.Drawing.Point(385, 557);
+            this.cmbVideoSource.Margin = new System.Windows.Forms.Padding(2);
             this.cmbVideoSource.Name = "cmbVideoSource";
-            this.cmbVideoSource.Size = new System.Drawing.Size(121, 24);
+            this.cmbVideoSource.Size = new System.Drawing.Size(158, 21);
             this.cmbVideoSource.TabIndex = 3;
+            this.cmbVideoSource.SelectedIndexChanged += new System.EventHandler(this.cmbVideoSource_SelectedIndexChanged);
+            // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(12, 557);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(113, 23);
+            this.materialRaisedButton1.TabIndex = 4;
+            this.materialRaisedButton1.Text = "Start Scan";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
+            // materialRaisedButton2
+            // 
+            this.materialRaisedButton2.Depth = 0;
+            this.materialRaisedButton2.Location = new System.Drawing.Point(145, 557);
+            this.materialRaisedButton2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton2.Name = "materialRaisedButton2";
+            this.materialRaisedButton2.Primary = true;
+            this.materialRaisedButton2.Size = new System.Drawing.Size(113, 23);
+            this.materialRaisedButton2.TabIndex = 5;
+            this.materialRaisedButton2.Text = "Stop Scan";
+            this.materialRaisedButton2.UseVisualStyleBackColor = true;
+            this.materialRaisedButton2.Click += new System.EventHandler(this.materialRaisedButton2_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 533);
+            this.ClientSize = new System.Drawing.Size(554, 592);
+            this.Controls.Add(this.materialRaisedButton2);
+            this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.cmbVideoSource);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Surplus QR checker";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox cmbVideoSource;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton2;
     }
 }
 

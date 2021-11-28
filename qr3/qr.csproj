@@ -55,6 +55,9 @@
     <Reference Include="Magick.NET.Core, Version=8.4.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
       <HintPath>packages\Magick.NET.Core.8.4.0\lib\net20\Magick.NET.Core.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="MessagingToolkit.QRCode">
       <HintPath>.\MessagingToolkit.QRCode.dll</HintPath>
     </Reference>
@@ -125,7 +128,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\chromedriver.exe" />
     <Content Include="Resources\freezercapture\freezercapture.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(SolutionDir)\Resources\chromedriver.exe" "$(TargetDir)\chromedriver.exe"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

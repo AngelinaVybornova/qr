@@ -9,10 +9,12 @@ using AForge.Video.DirectShow;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System.IO;
+using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace qr
 {
-    public partial class Form1 : Form
+    public partial class Form1 : MaterialForm
     {
         BackgroundWorker worker;
         private FilterInfoCollection videoDevicesList;
@@ -24,6 +26,12 @@ namespace qr
         public Form1()
         {
             InitializeComponent();
+
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.Green500, Primary.Green500, Primary.Green500, Accent.LightBlue200, TextShade.WHITE);
+
             isTimerStarted = false;
             videoDevicesList = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo videoDevice in videoDevicesList)
@@ -45,6 +53,7 @@ namespace qr
             t = new System.Timers.Timer();
             t.Elapsed += T_Tick;
             t.Interval = 1;
+
         }
         private void T_Tick(object sender, EventArgs e)
         {
@@ -95,23 +104,7 @@ namespace qr
             }
 
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
 
-                videoSource = new VideoCaptureDevice(videoDevicesList[cmbVideoSource.SelectedIndex].MonikerString);
-                videoSource.NewFrame += new NewFrameEventHandler(video_NewFrame);
-                videoSource.Start();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            videoSource.SignalToStop();
-            if (videoSource != null && videoSource.IsRunning && pictureBox1.Image != null)
-            {
-                pictureBox1.Image.Dispose();
-            }
-            t.Stop();
-        }
         private void video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
@@ -145,6 +138,28 @@ namespace qr
                 default:
                     return "Ошибка, попробуйте еще раз";
             }
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            videoSource = new VideoCaptureDevice(videoDevicesList[cmbVideoSource.SelectedIndex].MonikerString);
+            videoSource.NewFrame += new NewFrameEventHandler(video_NewFrame);
+            videoSource.Start();
+        }
+
+        private void materialRaisedButton2_Click(object sender, EventArgs e)
+        {
+            videoSource.SignalToStop();
+            if (videoSource != null && videoSource.IsRunning && pictureBox1.Image != null)
+            {
+                pictureBox1.Image.Dispose();
+            }
+            t.Stop();
+        }
+
+        private void cmbVideoSource_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
